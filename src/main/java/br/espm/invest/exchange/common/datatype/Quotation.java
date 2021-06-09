@@ -8,6 +8,13 @@ public class Quotation {
     private Double value;
     private Date date;
 
+    public Quotation(String id, Currency currency, Double value, Date date) {
+        this.id = id;
+        this.currency = currency;
+        this.value = value;
+        this.date = date;
+    }
+
     public String getId() {
         return id;
     }

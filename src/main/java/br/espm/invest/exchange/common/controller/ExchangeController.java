@@ -4,6 +4,7 @@ import br.espm.invest.exchange.common.datatype.Currency;
 import br.espm.invest.exchange.common.datatype.Quotation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -11,11 +12,18 @@ import java.util.List;
 public interface ExchangeController {
 
     @GetMapping("/currency")
-    List<Currency> listAll();
+    List<Currency> currencies();
 
-    @GetMapping("/quotation/{id}")
+    @GetMapping("/currency/{symbol}")
+    Currency currency(String symbol);
+
+    @GetMapping("/quotations")
+    List<Quotation> quotations(
+            @RequestParam String symbol,
+            @RequestParam String start,
+            @RequestParam String end
+    );
+
+    @GetMapping("/quotations/{id}")
     Quotation quotation(String id);
-
-    @GetMapping("/quotation/{currency}")
-    List<Quotation> quotations(String Currency);
 }
