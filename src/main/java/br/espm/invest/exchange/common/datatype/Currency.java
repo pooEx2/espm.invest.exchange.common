@@ -5,12 +5,6 @@ public class Currency {
     private String name;
     private String symbol;
 
-    public Currency(String id, String name, String symbol) {
-        this.id = id;
-        this.name = name;
-        this.symbol = symbol;
-    }
-
     public String getId() {
         return id;
     }
