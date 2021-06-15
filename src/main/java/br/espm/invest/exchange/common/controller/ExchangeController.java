@@ -16,10 +16,10 @@ public interface ExchangeController {
     List<Currency> currencies();
 
     @GetMapping("/currency/{symbol}")
-    Currency currency(String symbol);
+    Currency currency(@PathVariable String symbol);
 
     @GetMapping("/quotations/{id}")
-    Quotation quotation(String id);
+    Quotation quotation(@PathVariable String id);
 
     @GetMapping("/quotations/{symbol}/{date}")
     Quotation quotation(
